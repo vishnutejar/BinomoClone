@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace BinomoClone.pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class EmailLogin : ContentPage
     {
-        public HomePage()
+        public EmailLogin()
         {
             InitializeComponent();
-        }
-
-        private void ValidateUser(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new LoginPage());
         }
     }
 }

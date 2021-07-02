@@ -11,7 +11,7 @@ namespace BinomoClone
         {
             InitializeComponent();
 
-            MainPage = new HomePage();
+            MainPage =new NavigationPage(new WelcomePage());
         }
 
         protected override void OnStart()
