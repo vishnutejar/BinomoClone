@@ -10,6 +10,8 @@ namespace BinomoClone.pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        string phonumber, password;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -51,20 +53,15 @@ namespace BinomoClone.pages
         {
             try
             {
-                string phonumber, password;
                 phonumber = phnumentry?.Text;
                 password = passwordentry?.Text;
-                if (password == null && phonumber == null) {
-                    DisplayAlert("User Message", "Enter Your Phone Number and password", "ok");
+             
 
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(phonumber))
+                if (string.IsNullOrWhiteSpace(phonumber))
                 {
                     DisplayAlert("User Message", "Enter Your Phone Number", "ok");
                 }
-                else if (string.IsNullOrEmpty(password))
+                else if (string.IsNullOrWhiteSpace(password))
                 {
                     DisplayAlert("User Message", "Enter Your Password", "ok");
 
