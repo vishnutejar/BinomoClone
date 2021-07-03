@@ -12,6 +12,7 @@ namespace BinomoClone.pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WelcomePage : ContentPage
     {
+        string data = "dlkdhkhdgsdhgksdgkd wrweorweroweur hiehreifhhiwef oiwehfwerhwerfwhif";
         public WelcomePage()
         {
             InitializeComponent();

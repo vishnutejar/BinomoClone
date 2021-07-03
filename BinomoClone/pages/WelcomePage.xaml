@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BinomoClone.pages.WelcomePage"
              BackgroundColor="Yellow"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             >
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Image Source="icon" WidthRequest="60" HeightRequest="60"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="10">
                 <Button Text="Login" WidthRequest="100"  BackgroundColor="White" Clicked="NaviagteLoginPage" CornerRadius="50" TextColor="Black"/>
                 <Frame  CornerRadius="50" WidthRequest="80" BackgroundColor="LightSkyBlue" Padding="10">
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="icon" WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                        <Image Source="cofffe1" WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
                         <Label Text="SignUp" TextColor="White" FontAttributes="Bold" FontSize="14" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
 
                     </StackLayout>
@@ -21,7 +21,18 @@
                     </Frame.GestureRecognizers>
                 </Frame>
             </StackLayout>
-        
+            <Label BackgroundColor="White" HorizontalOptions="CenterAndExpand" Margin="20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="read our TERMS AND CONDITIONS and sign up here" TextColor="Black" FontAttributes="Bold" FontSize="14"/>
+                        <Span Text=" sign up here" TextColor="Red" TextDecorations="Underline" FontAttributes="Italic">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToSignUpPage"></TapGestureRecognizer>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
