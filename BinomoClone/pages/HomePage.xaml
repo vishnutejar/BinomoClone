@@ -1,77 +1,146 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BinomoClone.pages.HomePage"
-             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="True"
+            xmlns:page="clr-namespace:BinomoClone.pages"
+            IconImageSource="hamburger.png"
+
             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             BackgroundColor="#535c68">
-    <ContentPage.Content>
-        <ScrollView >
-            <StackLayout>
-                <Frame Padding="0" BackgroundColor="#8395a7"  HasShadow="True" >
-                    <StackLayout Orientation="Horizontal"   Margin="5,10" >
-                        <Image Source="icon.png"  WidthRequest="30" HeightRequest="30"/>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="60,0,0,0">
-                            <Label Text="CFD" TextColor="Gray" FontSize="12"/>
-                            <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
+             >
 
-                        </StackLayout>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Margin="20,0,0,0">
-                            <Label Text="CFD" TextColor="Gray" FontSize="12"/>
-                            <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
-
-                        </StackLayout>
-                        <Image  Source="icon.png" HorizontalOptions="EndAndExpand" WidthRequest="30" HeightRequest="30"/>
-
+    <MasterDetailPage.Master>
+        <ContentPage Title="Master">
+            <Grid RowDefinitions="Auto,*">
+                <!--Header in Master-->
+                <!--<Grid RowDefinitions="Auto,Aut" ColumnDefinitions="Auto,Auto" Grid.Row="0" BackgroundColor="LightSeaGreen">
+                    <Image Source="icon" Grid.Row="0" Grid.Column="0"/>
+                    <Image Source="icon" Grid.Row="0" Grid.Column="1"/>
+                    <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                        <Label Text="Vishnu"></Label>
+                        <Label Text="98793485739573"></Label>
                     </StackLayout>
+                    <Image Grid.Row="1" Grid.Column="1" Source="icon"></Image>
+                </Grid>-->
+                <ListView x:Name="masterMenulst" Grid.Row="1">
+                    <ListView.Header>
+                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*" BackgroundColor="LightSeaGreen" Margin="10">
+                            <Image HorizontalOptions="Start" Source="icon" Grid.Row="0" Grid.Column="0"/>
+                            <Image Source="icon" Grid.Row="0" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                            <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalOptions="Start">
+                                <Label Text="Vishnu"></Label>
+                                <Label Text="98793485739573"></Label>
+                            </StackLayout>
+                            <Image Grid.Row="1" Grid.Column="1" Source="icon" HorizontalOptions="End" BackgroundColor="AliceBlue"></Image>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Margin="10">
+                                    <Image Source="icon" />
+                                    <Label Text="Item" VerticalTextAlignment="Center"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                           
 
-                </Frame>
-                <Grid RowDefinitions="Auto" ColumnDefinitions="*,*" HorizontalOptions="CenterAndExpand" Margin="10">
-                    <Frame Grid.Row="0" Grid.Column="0" Padding="5" Margin="0,0,5,0" CornerRadius="3" BackgroundColor="#d1ccc0">
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="CFD" TextColor="Gray" FontSize="12"/>
-                            <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <TabbedPage Title="Tab">
+            <ContentPage Title="Home">
+                <ContentPage.Content>
+                    <ScrollView >
+                        <StackLayout>
+                            <Frame Padding="0" BackgroundColor="#8395a7"  HasShadow="True" >
+                                <StackLayout Orientation="Horizontal"   Margin="5,10" >
+                                    <Image Source="icon.png"  WidthRequest="30" HeightRequest="30"/>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="60,0,0,0">
+                                        <Label Text="CFD" TextColor="Gray" FontSize="12"/>
+                                        <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
+
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Margin="20,0,0,0">
+                                        <Label Text="CFD" TextColor="Gray" FontSize="12"/>
+                                        <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
+
+                                    </StackLayout>
+                                    <Image  Source="icon.png" HorizontalOptions="EndAndExpand" WidthRequest="30" HeightRequest="30"/>
+
+                                </StackLayout>
+
+                            </Frame>
+                            <Grid RowDefinitions="Auto" ColumnDefinitions="*,*" HorizontalOptions="CenterAndExpand" Margin="10">
+                                <Frame Grid.Row="0" Grid.Column="0" Padding="5" Margin="0,0,5,0" CornerRadius="3" BackgroundColor="#d1ccc0">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="CFD" TextColor="Gray" FontSize="12"/>
+                                        <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame Grid.Row="0" Grid.Column="1" Padding="5" Margin="5,0,0,0" CornerRadius="3" BackgroundColor="#ecf0f1">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="CFD" TextColor="Gray" FontSize="12"/>
+                                        <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <StackLayout HeightRequest="400">
+
+                            </StackLayout>
+                            <Grid RowDefinitions="50" ColumnDefinitions="*,*" HorizontalOptions="CenterAndExpand" Margin="10">
+                                <Frame Grid.Row="0" Grid.Column="0" Padding="5" Margin="0,0,5,0" CornerRadius="3" BackgroundColor="#d1ccc0">
+                                    <StackLayout Orientation="Vertical">
+
+                                    </StackLayout>
+                                </Frame>
+                                <Frame Grid.Row="0" Grid.Column="1" Padding="5" Margin="5,0,0,0" CornerRadius="3" BackgroundColor="#ecf0f1">
+                                    <StackLayout Orientation="Vertical">
+
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid RowDefinitions="*" ColumnDefinitions="3*,3*,4*" HorizontalOptions="CenterAndExpand" Margin="10">
+                                <yummy:PancakeView Grid.Row="0" Grid.Column="0" CornerRadius="10,0,10,0" BackgroundColor="Green" Padding="10">
+                                    <Image Source="icon.png"  WidthRequest="30" HeightRequest="30"/>
+                                </yummy:PancakeView>
+                                <yummy:PancakeView Grid.Row="0" Grid.Column="1" CornerRadius="0,10,0,10" BackgroundColor="Black" Padding="10">
+                                    <Image Source="icon.png"  WidthRequest="50" HeightRequest="30"/>
+                                </yummy:PancakeView>
+                                <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                    <Label Text="Commision 0.02%" TextColor="Gray" HorizontalTextAlignment="Center"></Label>
+                                    <Button Text="Opentrade" BackgroundColor="Green"  CornerRadius="10" TextColor="White" Padding="10" Clicked="ValidateUser"></Button>
+                                </StackLayout>
+                            </Grid>
+
+                            <StackLayout>
+                            </StackLayout>
                         </StackLayout>
-                    </Frame>
-                    <Frame Grid.Row="0" Grid.Column="1" Padding="5" Margin="5,0,0,0" CornerRadius="3" BackgroundColor="#ecf0f1">
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="CFD" TextColor="Gray" FontSize="12"/>
-                            <Label Text="Gold CFD" TextColor="White" FontSize="14"/>
-                        </StackLayout>
-                    </Frame>
-                </Grid>
-                <StackLayout HeightRequest="400">
+                    </ScrollView>
 
-                </StackLayout>
-                <Grid RowDefinitions="50" ColumnDefinitions="*,*" HorizontalOptions="CenterAndExpand" Margin="10">
-                    <Frame Grid.Row="0" Grid.Column="0" Padding="5" Margin="0,0,5,0" CornerRadius="3" BackgroundColor="#d1ccc0">
-                        <StackLayout Orientation="Vertical">
+                </ContentPage.Content>
 
-                        </StackLayout>
-                    </Frame>
-                    <Frame Grid.Row="0" Grid.Column="1" Padding="5" Margin="5,0,0,0" CornerRadius="3" BackgroundColor="#ecf0f1">
-                        <StackLayout Orientation="Vertical">
+            </ContentPage>
+            <TabbedPage Title="Profile">
+                <ContentPage Title="p1">
+                    <Label Text="I am from from Profile"></Label>
 
-                        </StackLayout>
-                    </Frame>
-                </Grid>
-                <Grid RowDefinitions="*" ColumnDefinitions="3*,3*,4*" HorizontalOptions="CenterAndExpand" Margin="10">
-                    <yummy:PancakeView Grid.Row="0" Grid.Column="0" CornerRadius="10,0,10,0" BackgroundColor="Green" Padding="10">
-                        <Image Source="icon.png"  WidthRequest="30" HeightRequest="30"/>
-                    </yummy:PancakeView>
-                    <yummy:PancakeView Grid.Row="0" Grid.Column="1" CornerRadius="0,10,0,10" BackgroundColor="Black" Padding="10">
-                        <Image Source="icon.png"  WidthRequest="50" HeightRequest="30"/>
-                    </yummy:PancakeView>
-                    <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" Orientation="Vertical">
-                        <Label Text="Commision 0.02%" TextColor="Gray" HorizontalTextAlignment="Center"></Label>
-                        <Button Text="Opentrade" BackgroundColor="Green"  CornerRadius="10" TextColor="White" Padding="10" Clicked="ValidateUser"></Button>
-                    </StackLayout>
-                </Grid>
-                
-                <StackLayout>
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
+                </ContentPage>
+                <ContentPage Title="p2">
+                    <Label Text="I am from from Profile"></Label>
 
-    </ContentPage.Content>
-</ContentPage>
+                </ContentPage>
+            </TabbedPage>
+            <page:WelcomePage Title="Welcome"></page:WelcomePage>
+            <ContentPage Title="More">
+                <Label Text="I am from from More"></Label>
+
+            </ContentPage>
+        </TabbedPage>
+    </MasterDetailPage.Detail>
+  
+</MasterDetailPage>

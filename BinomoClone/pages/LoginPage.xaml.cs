@@ -1,7 +1,7 @@
 ﻿using BinomoClone.custompopup;
 using Rg.Plugins.Popup.Services;
 using System;
-
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +11,7 @@ namespace BinomoClone.pages
     public partial class LoginPage : ContentPage
     {
         string phonumber, password;
+
 
         public LoginPage()
         {
@@ -77,8 +78,9 @@ namespace BinomoClone.pages
                     }
                     else
                     {
-
-                        DisplayAlert("Congrasulations", "Thanks for login in to binomo app", "ok");
+                        /*validate your number using regex*/
+                        // Navigation.PushAsync(new HomePage());
+                        App.Current.MainPage = new NavigationPage(new HomePage());
 
                     }
                 }

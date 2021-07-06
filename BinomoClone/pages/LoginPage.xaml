@@ -4,41 +4,53 @@
              x:Class="BinomoClone.pages.LoginPage"
              NavigationPage.HasNavigationBar="False"
              Title="Login Page"
-             BackgroundColor="white">
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="label12">
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="TextColor" Value="SeaGreen"></Setter>
+            </Style>
+            <Style TargetType="Entry" x:Key="entry12">
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="PlaceholderColor" Value="White"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <StackLayout x:Name="Layout" Orientation="Vertical"  Margin="5" HorizontalOptions="FillAndExpand">
                 <ImageButton Source="icon" Margin="10" WidthRequest="20" BackgroundColor="Transparent" HeightRequest="20" HorizontalOptions="Start" Clicked="GoBack"></ImageButton>
                 <Label Margin="0,50,0,0" Text="Log In" FontSize="24" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-                <Label x:Name="phonenumberlabel" Margin="30,0,0,0" FontSize="12" Text="PHONE NUMBER" HorizontalOptions="Start" TextColor="DeepSkyBlue" />
+                <Label x:Name="phonenumberlabel" Margin="30,0,0,0" Style="{StaticResource Key=label12}" Text="PHONE NUMBER" HorizontalOptions="Start" />
                 <StackLayout x:Name="phonenumberentrys" Orientation="Horizontal" Margin="30,0,0,0" HorizontalOptions="Fill">
-                    <Entry  Placeholder="IN +91" FontSize="12" PlaceholderColor="DeepSkyBlue" Keyboard="Telephone"/>
-                    <Entry Margin="0,0,40,0" x:Name="phnumentry" FontSize="12" Placeholder="8123456789" Keyboard="Telephone" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" />
+                    <Entry  Placeholder="IN +91" Style="{StaticResource entry12}" Keyboard="Telephone" MaxLength="10"/>
+                    <Entry Margin="0,0,40,0" x:Name="phnumentry" FontSize="12" Placeholder="8123456789" Keyboard="Telephone" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand" MaxLength="10"/>
                 </StackLayout>
-                <Label x:Name="useemailorusernamelabel" Margin="30,0,0,0" FontSize="12" Text="User emmail or username instead" HorizontalOptions="Start" TextColor="DeepSkyBlue" >
+                <Label x:Name="useemailorusernamelabel" Margin="30,0,0,0" Style="{StaticResource Key=label12}" Text="User emmail or username instead" HorizontalOptions="Start" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="NavigateToEmailLogin"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Label x:Name="usernameoremail" IsVisible="false" Margin="30,0,0,0" FontSize="12" Text="USERNAME OR EMAIL" HorizontalOptions="Start" TextColor="DeepSkyBlue" />
+                <Label x:Name="usernameoremail" IsVisible="false" Margin="30,0,0,0" Style="{StaticResource Key=label12}" Text="USERNAME OR EMAIL" HorizontalOptions="Start"  />
                 <Entry x:Name="emailentry" IsVisible="false" Margin="30,0,0,0"></Entry>
-                <Label x:Name="usephonenumberinsteadlabel" IsVisible="false" Margin="30,0,0,0" FontSize="12" Text="User phone number instead" HorizontalOptions="Start" TextColor="DeepSkyBlue" >
+                <Label x:Name="usephonenumberinsteadlabel" IsVisible="false" Margin="30,0,0,0" Style="{StaticResource Key=label12}" Text="User phone number instead" HorizontalOptions="Start" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="NavigateToPhoneNumber"/>
                     </Label.GestureRecognizers>
                 </Label>
 
 
-                <Label Margin="40,10,0,0" Text="PASSWORD" FontSize="12" HorizontalOptions="Start" TextColor="DeepSkyBlue" />
+                <Label Margin="40,10,0,0" Text="PASSWORD" Style="{StaticResource Key=label12}" HorizontalOptions="Start"  />
                 <Entry x:Name="passwordentry" Margin="40,0,40,0"   IsPassword="True"  />
-                <Label  Margin="0,40,0,0" FontSize="12" Text="Forgot your password?" HorizontalOptions="CenterAndExpand" TextColor="DeepSkyBlue" >
+                <Label  Margin="0,40,0,0" Style="{StaticResource Key=label12}" Text="Forgot your password?" HorizontalOptions="CenterAndExpand" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ShowPopup"/>
                     </Label.GestureRecognizers>
                 </Label>
 
 
-                <Button Text="Log in" Clicked="ValidateUser" Margin="70,30"  VerticalOptions="EndAndExpand" BackgroundColor="Gray" TextColor="White" CornerRadius="20" HorizontalOptions="Fill"/>
+                <Button Text="Log in" Clicked="ValidateUser" Margin="70,30"  VerticalOptions="EndAndExpand" TextColor="White" CornerRadius="20" HorizontalOptions="Fill"/>
             </StackLayout>
             
             <!--<Frame x:Name="popup" BackgroundColor="White" CornerRadius="20" HeightRequest="100">
